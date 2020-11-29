@@ -16,5 +16,4 @@ const configuracoes = {
   }
 };
 
-// Imprime no documento HTML de modo síncrono:
-console.log(`<b>${configuracoes.geraMensagemBoasVindas()}</b>`);
+document.querySelector('#cumprimento').innerHTML = `<b>${configuracoes.geraMensagemBoasVindas()}</b>`;
