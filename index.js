@@ -1,5 +1,5 @@
 import { geraCumprimento } from './hello-world.js';
-import { buscaTodosArtigos } from './fetch.js';
+import { buscaTodosArtigos, postLogin } from './fetch.js';
 import { agruparEContar, dateToString } from './formatter.js';
 
 buscaTodosArtigos().then(dados => {
@@ -54,5 +54,20 @@ setInterval(() => {
   }
 }, 1000);
 
+/**
+ * Envia os dados do formulário para o _endpoint) de login.
+ *
+ * @param {HTMLFormElement} form
+ * @param {Event} evento
+ */
+function fazerLogin(form, evento) {
+  evento.preventDefault();
+  postLogin(form.email.value, form.senha.value).then(
+    dados => console.log('Usuário logado:', dados.user.username),
+    err => console.error(err)
+  );
+}
+
 window.cumprimentar = cumprimentar;
+window.fazerLogin = fazerLogin;
 
