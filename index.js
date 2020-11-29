@@ -36,5 +36,16 @@ export function cumprimentar() {
   configuracoes.solicitacoes.push(new Date());
 }
 
+setInterval(() => {
+  const solEncontrada = configuracoes.solicitacoes.find(
+    sol => Date.now() - sol.getTime() < 5000
+  );
+  if (!solEncontrada) {
+    document.querySelector('#cumprimento').innerHTML = `Aguardando usuário...`;
+    configuracoes.solicitacoes = [];
+    document.querySelector('#lista-solicitacoes').innerHTML = ``;
+  }
+}, 1000);
+
 window.cumprimentar = cumprimentar;
 
