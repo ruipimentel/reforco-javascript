@@ -1,5 +1,12 @@
 import { geraCumprimento } from './hello-world.js';
+import { buscaTodosArtigos } from './fetch.js';
 import { agruparEContar, dateToString } from './formatter.js';
+
+buscaTodosArtigos().then(dados => {
+  document.querySelector('#feed-global').innerHTML = `<b>
+    Exibindo artigos 0~20 de ${dados.articlesCount}.
+  </b>`;
+});
 
 const configuracoes = {
   /**
