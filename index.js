@@ -1,11 +1,4 @@
 /**
- * Mensagem de boas vindas para o(a) usuário(a).
- *
- * Dependerá da hora de acesso do(a) usuário(a).
- */
-const mensagemBoasVindas = `${geraCumprimento()}, caro(a) usuário(a)!`;
-
-/**
  * Gera o cumprimento adequado, dentre os possíves listados a seguir,
  * de acordo com a hora atual.
  * * `'Boa madrugada'`
@@ -13,7 +6,7 @@ const mensagemBoasVindas = `${geraCumprimento()}, caro(a) usuário(a)!`;
  * * `'Boa tarde'`
  * * `'Boa noite'`
  */
-function geraCumprimento() {
+const geraCumprimento = function() {
 
   /**
    * Data e hora do momento em que a declaração for executada.
@@ -45,7 +38,14 @@ function geraCumprimento() {
     default:
       return `Boa noite`;
   }
-}
+};
+
+/**
+ * Mensagem de boas vindas para o(a) usuário(a).
+ *
+ * Dependerá da hora de acesso do(a) usuário(a).
+ */
+const mensagemBoasVindas = `${geraCumprimento()}, caro(a) usuário(a)!`;
 
 // Imprime no documento HTML de modo síncrono:
 document.write(`<b>${mensagemBoasVindas}</b>`);
