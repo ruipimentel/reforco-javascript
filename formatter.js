@@ -26,21 +26,23 @@ export function dateToString(date) {
  *                        e contados.
  */
 export function agruparEContar(strs) {
-  return strs.filter(function(str, i) {
+  return strs.reduce(function(acum, str, i) {
 
     // Se é repetida:
     if (i > 0 && str === strs[i - 1]) {
-      return false;
+      acum[acum.length - 1].cont++;
     } else {
-      return true;
+      acum.push(
+        // Objeto literal:
+        { str: str, cont: 1 }
+      );
     }
 
-  }).map(
-    strUnica => {
-      // Conta as ocorrências da `string` única `strUnica` no `Array` original:
-      const cont = strs.filter(s => s === strUnica).length;
+    return acum;
 
-      return `[${cont}] ${strUnica}`
+  }, []).map(
+    obj => {
+      return `[${obj.cont}] ${obj.str}`
     }
   );
 }
