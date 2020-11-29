@@ -2,9 +2,9 @@ import { geraCumprimento } from './hello-world.js';
 
 const configuracoes = {
   /**
-   * `true` caso o usuário já tenha clicado no botão "Cumprimentar".
+   * Registra os horários de todas as solicitações de cumprimento do usuário.
    */
-  jaCumprimentou: false,
+  solicitacoes: [],
 
   /**
    * Mensagem de boas vindas para o(a) usuário(a).
@@ -20,13 +20,17 @@ const configuracoes = {
  * "Cumprimentar".
  */
 export function cumprimentar() {
-  if (configuracoes.jaCumprimentou) {
-    alert('Já cumprimentei ao menos 1 vez anteriormente...')
+  if (configuracoes.solicitacoes.length > 0) {
+    document.querySelector('#lista-solicitacoes').innerHTML = `<ul>${
+      configuracoes.solicitacoes.map(function(sol){
+        return `<li>${sol}</li>`;
+      }).join('')
+    }</ul>`;
   }
   document.querySelector('#cumprimento').innerHTML = `<b>${
     configuracoes.mensagemBoasVindas
   }</b>`;
-  configuracoes.jaCumprimentou = true;
+  configuracoes.solicitacoes.push(new Date());
 }
 
 window.cumprimentar = cumprimentar;
