@@ -1,8 +1,10 @@
 import { geraCumprimento } from './hello-world.js';
 
 const configuracoes = {
-  numero: 42,
-  variavelInutil: true,
+  /**
+   * `true` caso o usuário já tenha clicado no botão "Cumprimentar".
+   */
+  jaCumprimentou: false,
 
   /**
    * Mensagem de boas vindas para o(a) usuário(a).
@@ -11,9 +13,21 @@ const configuracoes = {
    */
   mensagemBoasVindas: `${geraCumprimento()}, caro(a) usuário(a)!`,
 
-  geraMensagemBoasVindas: function() {
-    return this.mensagemBoasVindas;
-  }
 };
 
-document.querySelector('#cumprimento').innerHTML = `<b>${configuracoes.geraMensagemBoasVindas()}</b>`;
+/**
+ * Método disponível para o HTML como _handler_ de clique do botão
+ * "Cumprimentar".
+ */
+export function cumprimentar() {
+  if (configuracoes.jaCumprimentou) {
+    alert('Já cumprimentei ao menos 1 vez anteriormente...')
+  }
+  document.querySelector('#cumprimento').innerHTML = `<b>${
+    configuracoes.mensagemBoasVindas
+  }</b>`;
+  configuracoes.jaCumprimentou = true;
+}
+
+window.cumprimentar = cumprimentar;
+
