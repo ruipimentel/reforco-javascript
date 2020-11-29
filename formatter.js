@@ -12,3 +12,26 @@ export function dateToString(date) {
     [ date.getHours(), date.getMinutes(), date.getSeconds() ].map(padStart2).join(':')
   }`;
 }
+
+/**
+ * Retorna um novo `Array` de `string`s, contendo apenas elementos únicos (elimina
+ * registros duplicados do `Array` de entrada).
+ *
+ * Parte da suposição de que os elementos repetidos serão consecutivos (vizinhos).
+ *
+ * @param {string[]} strs `Array` de `string`s a ter seus membros repetidos agrupados
+ *                        e contados.
+ */
+export function agrupar(strs) {
+  return strs.filter(function(str, i) {
+
+    // Se é repetida:
+    if (i > 0 && str === strs[i - 1]) {
+      return false;
+    } else {
+      return true;
+    }
+
+  });
+}
+

@@ -25,8 +25,8 @@ const configuracoes = {
 export function cumprimentar() {
   if (configuracoes.solicitacoes.length > 0) {
     document.querySelector('#lista-solicitacoes').innerHTML = `<ul>${
-      configuracoes.solicitacoes.map(function(sol) {
-        return `<li>${ dateToString(sol) }</li>`;
+      agrupar(configuracoes.solicitacoes.map(dateToString)).map(function(sol) {
+        return `<li>${ sol }</li>`;
       }).join('')
     }</ul>`;
   }
