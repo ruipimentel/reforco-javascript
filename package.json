@@ -1,0 +1,27 @@
+{
+  "name": "reforco-javascript",
+  "version": "1.0.0",
+  "description": "Projeto de ambientação com JavaScript \"vanilla\".",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruipimentel/reforco-javascript.git"
+  },
+  "keywords": [
+    "javascript",
+    "vanilla",
+    "reforço"
+  ],
+  "author": "CEFWM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruipimentel/reforco-javascript/issues"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  },
+  "homepage": "https://github.com/ruipimentel/reforco-javascript#readme"
+}
