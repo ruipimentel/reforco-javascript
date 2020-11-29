@@ -1,5 +1,5 @@
 import { geraCumprimento } from './hello-world.js';
-import { dateToString } from './formatter.js';
+import { agruparEContar, dateToString } from './formatter.js';
 
 const configuracoes = {
   /**
@@ -25,7 +25,7 @@ const configuracoes = {
 export function cumprimentar() {
   if (configuracoes.solicitacoes.length > 0) {
     document.querySelector('#lista-solicitacoes').innerHTML = `<ul>${
-      agrupar(configuracoes.solicitacoes.map(dateToString)).map(function(sol) {
+      agruparEContar(configuracoes.solicitacoes.map(dateToString)).map(function(sol) {
         return `<li>${ sol }</li>`;
       }).join('')
     }</ul>`;
