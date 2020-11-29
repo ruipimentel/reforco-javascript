@@ -1,19 +1,18 @@
 /**
  * Gera o cumprimento adequado, dentre os possíves listados a seguir,
- * de acordo com a hora atual.
+ * de acordo com a hora especificada.
  * * `'Boa madrugada'`
  * * `'Bom dia'`
  * * `'Boa tarde'`
  * * `'Boa noite'`
+ *
+ * @param {number} hora Hora (inteira) para a qual se deseja gerar o
+ *                      cumprimento. Caso não especificada, utiliza a
+ *                      hora atual.
  */
-export const geraCumprimento = function() {
+export const geraCumprimento = function(hora = new Date().getHours()) {
 
-  /**
-   * Data e hora do momento em que a declaração for executada.
-   */
-  const agora = new Date();
-
-  switch (agora.getHours()) {
+  switch (hora) {
     case 0:
     case 1:
     case 2:
