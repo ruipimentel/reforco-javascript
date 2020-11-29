@@ -1,8 +1,11 @@
 import { geraCumprimento } from './hello-world.js';
+import { dateToString } from './formatter.js';
 
 const configuracoes = {
   /**
    * Registra os horários de todas as solicitações de cumprimento do usuário.
+   *
+   * @type {Date[]}
    */
   solicitacoes: [],
 
@@ -22,8 +25,8 @@ const configuracoes = {
 export function cumprimentar() {
   if (configuracoes.solicitacoes.length > 0) {
     document.querySelector('#lista-solicitacoes').innerHTML = `<ul>${
-      configuracoes.solicitacoes.map(function(sol){
-        return `<li>${sol}</li>`;
+      configuracoes.solicitacoes.map(function(sol) {
+        return `<li>${ dateToString(sol) }</li>`;
       }).join('')
     }</ul>`;
   }
